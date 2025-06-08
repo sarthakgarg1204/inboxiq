@@ -1,0 +1,43 @@
+# ─────────────────────────────────────────────────────────────
+# Python
+# ─────────────────────────────────────────────────────────────
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.so
+# MyPy / Pyright
+.mypy_cache/
+.pyright/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Jupyter & notebooks
+.ipynb_checkpoints/
+
+# Logs & test artifacts
+*.log
+pytest_cache/
+
+# Environment variables
+.env
+!.env.example    # keep template
+
+# OS-specific & editor junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Supabase migrations & local datasets (keep them out of backend repo)
+../supabase/
+../dataset/
+
+# NOTE: We **do keep** the trained model files (.pkl) under backend/model/
+# If you decide to retrain in CI/CD and regenerate pkl files, add a rule:
+# model/*.pkl

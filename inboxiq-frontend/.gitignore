@@ -1,0 +1,38 @@
+# ─────────────────────────────────────────────────────────────
+# Node / Vite / React
+# ─────────────────────────────────────────────────────────────
+node_modules/
+dist/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Vite cache
+.vite/
+
+# Testing & coverage
+coverage/
+*.lcov
+
+# Environment variables
+.env
+.env.*          # .env.local, .env.production, etc.
+!.env.example   # keep the example file
+
+# OS-specific & editor junk
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build output
+*.tgz
+
+# Optional: lock-files (uncomment if you don’t commit them)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
