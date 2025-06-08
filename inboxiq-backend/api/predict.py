@@ -1,5 +1,6 @@
 import numpy as np
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, HTTPException, Query, Request
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 import pickle
 
@@ -15,6 +16,12 @@ with open("model/vectorizer.pkl", "rb") as f:
 class MessageInput(BaseModel):
     message: str
 
+# Handle CORS preflight request explicitly
+@router.options("/predict")
+async def options_handler(request: Request):
+    return JSONResponse(content={"message": "CORS preflight successful"}, status_code=200)
+
+# Prediction route
 @router.post("/predict")
 def predict_message(input_data: MessageInput, threshold: float = Query(0.5, ge=0.0, le=1.0)):
     """
