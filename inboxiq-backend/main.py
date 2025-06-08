@@ -2,20 +2,21 @@ import os
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from api.predict import router as predict_router
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = FastAPI()
 
-# frontend_url = os.getenv("FRONTEND_URL", "*")
-# print("Using FRONTEND_URL for CORS:", frontend_url)
-
+# Get allowed origins from .env, split by comma, and strip whitespace
 origins = [
-    "https://inboxiq-one.vercel.app",
-    # add more origins if needed
+    origin.strip() for origin in os.getenv("FRONTEND_URL", "*").split(",")
 ]
+
+print("Allowed CORS origins:", origins)
 
 app.add_middleware(
     CORSMiddleware,
-    # allow_origins=[frontend_url],
     allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],

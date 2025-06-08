@@ -6,3 +6,4 @@ numpy
 nltk
 seaborn
 matplotlib
+python-dotenv
