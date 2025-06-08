@@ -5,7 +5,8 @@ from api.predict import router as predict_router
 
 app = FastAPI()
 
-frontend_url = os.getenv("FRONTEND_URL", "*") 
+frontend_url = os.getenv("FRONTEND_URL", "*")
+print("Using FRONTEND_URL for CORS:", frontend_url)
 
 app.add_middleware(
     CORSMiddleware,
